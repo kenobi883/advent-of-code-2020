@@ -1,4 +1,4 @@
-package com.marcdenning.adventofcode
+package com.marcdenning.adventofcode.day05
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.params.ParameterizedTest
@@ -14,13 +14,13 @@ class Day05aTests {
     @ParameterizedTest
     @MethodSource("provideSeatArguments")
     fun testDetermineRow(seat: String, row: Int, column: Int, seatId: Long) {
-        Assertions.assertEquals(row, Day05a.determineRow(Day05a.extractRow(seat), 0, 0, NUMBER_OF_ROWS - 1))
+        Assertions.assertEquals(row, determineRow(extractRow(seat), 0, 0, NUMBER_OF_ROWS - 1))
     }
 
     @ParameterizedTest
     @MethodSource("provideSeatArguments")
     fun testDetermineColumn(seat: String, row: Int, column: Int, seatId: Long) {
-        Assertions.assertEquals(column, Day05a.determineColumn(Day05a.extractColumn(seat), 0, 0, NUMBER_OF_COLUMNS - 1))
+        Assertions.assertEquals(column, determineColumn(extractColumn(seat), 0, 0, NUMBER_OF_COLUMNS - 1))
     }
 
     companion object {
