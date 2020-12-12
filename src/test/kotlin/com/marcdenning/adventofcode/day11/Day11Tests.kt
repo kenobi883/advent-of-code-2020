@@ -110,6 +110,52 @@ class Day11Tests {
     }
 
     @Test
+    fun testFindVisibleSeatInDirection() {
+        val floorPlan = arrayOf(".L.L.#.#.#.#.".toCharArray())
+
+        assertEquals(' ', findVisibleSeatInDirection(floorPlan, 0, 1, 0, -1))
+        assertEquals('L', findVisibleSeatInDirection(floorPlan, 0, 1, 0, 1))
+        assertEquals('#', findVisibleSeatInDirection(floorPlan, 0, 3, 0, 1))
+    }
+
+    @Test
+    fun testCountVisibleSeats_fullFloorPlan() {
+        val floorPlan = getFloorPlanMatrix(
+            """
+            .......#.
+            ...#.....
+            .#.......
+            .........
+            ..#L....#
+            ....#....
+            .........
+            #........
+            ...#.....
+        """
+        )
+
+        assertEquals(8, countVisibleSeats(floorPlan, 4, 3, '#'))
+    }
+
+    @Test
+    fun testCountVisibleSeats_emptyFloorPlan() {
+        val floorPlan = getFloorPlanMatrix(
+        """
+            .##.##.
+            #.#.#.#
+            ##...##
+            ...L...
+            ##...##
+            #.#.#.#
+            .##.##.
+        """
+        )
+
+        assertEquals(0, countVisibleSeats(floorPlan, 3, 3, '#'))
+        assertEquals(0, countVisibleSeats(floorPlan, 3, 3, 'L'))
+    }
+
+    @Test
     fun testCountSeats() {
         val finalFloorPlan = getFloorPlanMatrix(
             """
