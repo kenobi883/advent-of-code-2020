@@ -4,26 +4,26 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class Day21aTests {
-
-    private val foods = listOf(
-        Food(
-            listOf("mxmxvkd", "kfcds", "sqjhc", "nhms"),
-            listOf("dairy", "fish")
-        ),
-        Food(
-            listOf("trh", "fvjkl", "sbzzf" ,"mxmxvkd"),
-            listOf("dairy")
-        ),
-        Food(
-            listOf("sqjhc", "fvjkl"),
-            listOf("soy")
-        ),
-        Food(
-            listOf("sqjhc", "mxmxvkd", "sbzzf"),
-            listOf("fish")
-        )
+val foods = listOf(
+    Food(
+        listOf("mxmxvkd", "kfcds", "sqjhc", "nhms"),
+        listOf("dairy", "fish")
+    ),
+    Food(
+        listOf("trh", "fvjkl", "sbzzf", "mxmxvkd"),
+        listOf("dairy")
+    ),
+    Food(
+        listOf("sqjhc", "fvjkl"),
+        listOf("soy")
+    ),
+    Food(
+        listOf("sqjhc", "mxmxvkd", "sbzzf"),
+        listOf("fish")
     )
+)
+
+class Day21aTests {
 
     @Test
     fun testGetSafeIngredients() {
@@ -34,9 +34,9 @@ class Day21aTests {
 
     @Test
     fun testGetCommonIngredientsForAllergen() {
-        assertTrue(getCommonIngredientsForAllergen(foods, "dairy").contains("mxmxvkd"))
-        assertTrue(getCommonIngredientsForAllergen(foods, "fish").contains("sqjhc"))
-        assertTrue(getCommonIngredientsForAllergen(foods, "soy").contains("fvjkl"))
+        assertEquals(listOf("mxmxvkd"), getCommonIngredientsForAllergen(foods, "dairy"))
+        assertEquals(listOf("mxmxvkd", "sqjhc"), getCommonIngredientsForAllergen(foods, "fish"))
+        assertEquals(listOf("sqjhc", "fvjkl"), getCommonIngredientsForAllergen(foods, "soy"))
     }
 
     @Test
